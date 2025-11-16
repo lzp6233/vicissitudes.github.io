@@ -1,0 +1,18 @@
+{
+  "name": "vicissitudes-blog",
+  "version": "1.0.0",
+  "description": "个人博客 - 基于 Docsify",
+  "scripts": {
+    "sidebar": "node generate-sidebar.js",
+    "serve": "python3 -m http.server 8000",
+    "dev": "npm run sidebar && npm run serve"
+  },
+  "keywords": [
+    "blog",
+    "docsify",
+    "markdown"
+  ],
+  "author": "lzp6233",
+  "license": "MIT"
+}
+
