@@ -106,4 +106,18 @@ pruning方法，不断拿走component，同时保持模型的能力不变
 
 
 > logit lens 查看语言模型内部的思考过程
+>
+> https://arxiv.org/abs/2402.10588
+
+模型编辑 Knowledge Neurons in Pretrained Transformers
+
+https://arxiv.org/abs/2104.08696
+
+Patchscopes https://arxiv.org/pdf/2401.06102
+
+back-patching https://arxiv.org/abs/2406.12775
+
+## transformer的竞争者们
+
+
 
