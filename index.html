@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vicissitudes · Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+    <meta name="theme-color" content="#0ea5e9">
+  </head>
+  <body>
+    <div class="bg-animate"></div>
+    <header class="site-header">
+      <div class="site-brand">Vicissitudes</div>
+      <nav class="site-nav">
+        <a href="#/" class="nav-link">首页</a>
+        <a href="#/about" class="nav-link">关于</a>
+        <a href="#/posts/index" class="nav-link">归档</a>
+        <a href="#/categories" class="nav-link">分类</a>
+        <button id="theme-toggle" class="nav-link" type="button">切换主题</button>
+        <a href="https://github.com/lzp6233" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      </nav>
+    </header>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: 'Vicis\'s Blog',
+        repo: 'lzp6233/vicissitudes.github.io',
+        themeable: {
+          readyTransition: true,
+          responsiveTables: true
+        },
+        auto2top: true,
+        subMaxLevel: 3,
+        loadSidebar: true,
+        routerMode: 'hash',
+        search: {
+          maxAge: 86400000,
+          placeholder: '搜索',
+          noData: '没有结果',
+          paths: 'auto'
+        },
+        homepage: 'README.md'
+      }
+    </script>
+    <script>
+      (function(){
+        var btn = document.getElementById('theme-toggle')
+        var prefer = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        var saved = localStorage.getItem('theme')
+        var theme = saved || prefer
+        function apply(t){
+          document.body.setAttribute('data-theme', t)
+          localStorage.setItem('theme', t)
+          if(btn){btn.textContent = t === 'dark' ? '切换为浅色' : '切换为深色'}
+        }
+        apply(theme)
+        if(btn){
+          btn.addEventListener('click', function(){
+            theme = theme === 'dark' ? 'light' : 'dark'
+            apply(theme)
+          })
+        }
+      })()
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  </body>
+</html>
