@@ -14,8 +14,15 @@ body[data-theme="light"] .bg-animate{background-color:var(--bg);background:linea
 .markdown-section pre{border-radius:14px;background:var(--code-bg)}
 .markdown-section code{font-size:.95em}
 .markdown-section a{color:var(--link)}
-.sidebar{backdrop-filter:saturate(1.4) blur(10px);background:var(--sidebar-bg);border-right:1px solid var(--border)}
-.search{backdrop-filter:saturate(1.3) blur(10px);background:var(--search-bg)}
+.sidebar,.sidebar-nav{backdrop-filter:saturate(1.4) blur(10px)!important;background:var(--sidebar-bg)!important;border-right:1px solid var(--border)!important}
+.sidebar ul li a{color:var(--text)!important;transition:all .2s}
+.sidebar ul li a:hover{color:var(--link)!important}
+.sidebar ul li.active>a{color:var(--link)!important;border-right:2px solid var(--link)!important}
+.sidebar>h1{color:var(--text)!important}
+.sidebar>h1 a{color:var(--text)!important}
+.search{backdrop-filter:saturate(1.3) blur(10px)!important;background:var(--search-bg)!important;border:1px solid var(--border)!important}
+.search input{background:transparent!important;color:var(--text)!important}
+.search input::placeholder{color:var(--nav-link-color)!important}
 /* Avoid overlap between Docsify sidebar toggle and site header brand */
 .sidebar-toggle{top:72px}
 @media (max-width: 960px){.site-header{padding:10px 14px}.site-nav .nav-link{margin-left:8px;padding:6px 10px}#app{padding:18px 10px}.markdown-section{padding:20px;border-radius:16px}}
