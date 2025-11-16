@@ -12,6 +12,6 @@
 - [随笔](categories.md#随笔)
 
 ## 关于我
-- 技术栈：JavaScript / TypeScript / Python
-- 联系方式：you@example.com
-- GitHub：[lzp](https://github.com/lzp)
+- 技术栈：JavaScript / HTML / CSS
+- 联系方式：liuzipeng@sjtu.edu.cn
+- GitHub：[lzp6233](https://github.com/lzp6233)
