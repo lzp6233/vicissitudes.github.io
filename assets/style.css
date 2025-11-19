@@ -1,5 +1,5 @@
-:root{--theme-hue:200;--theme-saturation:100%;--theme-lightness:60%;--base-font-size:17px;--content-max-width:860px;--sidebar-width:320px;--bg:#0b1220;--text:#f1f5f9;--text-secondary:#cbd5e1;--header-bg:rgba(13,20,35,.6);--border:rgba(148,163,184,.18);--nav-link-color:#e2e8f0;--nav-link-hover-bg:rgba(148,163,184,.16);--card-bg:rgba(17,24,39,.75);--code-bg:#0f172a;--link:#7dd3fc;--link-hover:#38bdf8;--sidebar-bg:rgba(15,23,42,.65);--search-bg:rgba(15,23,42,.95);--heading-color:#f8fafc}
-body[data-theme="light"]{--bg:#f8fafc;--text:#1e293b;--text-secondary:#475569;--header-bg:rgba(255,255,255,.75);--border:rgba(15,23,42,.12);--nav-link-color:#1e293b;--nav-link-hover-bg:rgba(2,6,23,.08);--card-bg:rgba(255,255,255,.85);--code-bg:#f1f5f9;--link:#0284c7;--link-hover:#0ea5e9;--sidebar-bg:rgba(255,255,255,.85);--search-bg:rgba(255,255,255,.85);--heading-color:#0f172a}
+:root{--theme-hue:200;--theme-saturation:100%;--theme-lightness:60%;--base-font-size:17px;--content-max-width:860px;--sidebar-width:320px;--bg:#0b1220;--text:#f1f5f9;--text-secondary:#cbd5e1;--header-bg:rgba(13,20,35,.6);--border:rgba(148,163,184,.18);--nav-link-color:#e2e8f0;--nav-link-hover-bg:rgba(148,163,184,.16);--card-bg:rgba(17,24,39,.75);--code-bg:#0f172a;--link:#7dd3fc;--link-hover:#38bdf8;--sidebar-bg:rgba(15,23,42,.65);--search-bg:rgba(15,23,42,.95);--heading-color:#f8fafc;--search-placeholder-color:#000000}
+body[data-theme="light"]{--bg:#f8fafc;--text:#1e293b;--text-secondary:#475569;--header-bg:rgba(255,255,255,.75);--border:rgba(15,23,42,.12);--nav-link-color:#1e293b;--nav-link-hover-bg:rgba(2,6,23,.08);--card-bg:rgba(255,255,255,.85);--code-bg:#f1f5f9;--link:#0284c7;--link-hover:#0ea5e9;--sidebar-bg:rgba(255,255,255,.85);--search-bg:rgba(255,255,255,.85);--heading-color:#0f172a;--search-placeholder-color:#64748b}
 html,body{min-height:100%}
 body{font-family:'Inter','Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:var(--bg);color:var(--text);position:relative}
 .bg-animate{position:absolute;inset:0;min-height:100%;z-index:-1;pointer-events:none;background-color:var(--bg);background:linear-gradient(to bottom,rgba(2,6,23,.18),rgba(2,6,23,.28)),radial-gradient(120vmax 60vmax at 20% 20%,rgba(56,189,248,.22),transparent),radial-gradient(90vmax 50vmax at 80% 30%,rgba(99,102,241,.22),transparent),radial-gradient(100vmax 80vmax at 50% 100%,rgba(56,189,248,.16),transparent),radial-gradient(80vmax 80vmax at 50% 80%,rgba(34,197,94,.16),transparent)}
@@ -52,7 +52,7 @@ body[data-theme="light"] .bg-animate{background-color:var(--bg);background:linea
 .sidebar .search input::placeholder,
 .sidebar .search .input::placeholder,
 .search input::placeholder,
-.search .input::placeholder{color:var(--nav-link-color)!important;opacity:0.7!important}
+.search .input::placeholder{color:var(--search-placeholder-color)!important;opacity:0.7!important}
 /* 确保搜索结果面板在深色模式下也正确显示 */
 .results-panel{background:var(--search-bg)!important;border:1px solid var(--border)!important;border-radius:8px!important;margin-top:5px!important}
 .results-panel .matching-post{border-bottom:1px solid var(--border)!important}
