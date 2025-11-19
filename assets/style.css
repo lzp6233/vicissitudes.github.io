@@ -40,9 +40,19 @@ body[data-theme="light"] .bg-animate{background-color:var(--bg);background:linea
 .sidebar ul li.active>a{color:var(--link)!important;border-right:2px solid var(--link)!important}
 .sidebar>h1{color:var(--text)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sidebar>h1 a{color:var(--text)!important}
-.search{backdrop-filter:saturate(1.3) blur(10px)!important;background:var(--search-bg)!important;border:1px solid var(--border)!important;padding:8px 12px!important;border-radius:8px!important;margin:10px!important}
-.search input{background:transparent!important;color:var(--text)!important;width:100%!important;outline:none!important;border:none!important;font-size:14px!important}
-.search input::placeholder{color:var(--nav-link-color)!important;opacity:0.7!important}
+/* 直接修改Docsify搜索框组件样式 */
+.sidebar .search input,
+.sidebar .search .input,
+.sidebar .search input[type="text"],
+.sidebar .search .input[type="text"],
+.search input,
+.search .input,
+.search input[type="text"],
+.search .input[type="text"]{background:var(--search-bg)!important;color:var(--text)!important;width:100%!important;outline:none!important;border:1px solid var(--border)!important;font-size:14px!important;padding:8px 12px!important;margin:10px!important;border-radius:8px!important;backdrop-filter:saturate(1.3) blur(10px)!important}
+.sidebar .search input::placeholder,
+.sidebar .search .input::placeholder,
+.search input::placeholder,
+.search .input::placeholder{color:var(--nav-link-color)!important;opacity:0.7!important}
 /* 确保搜索结果面板在深色模式下也正确显示 */
 .results-panel{background:var(--search-bg)!important;border:1px solid var(--border)!important;border-radius:8px!important;margin-top:5px!important}
 .results-panel .matching-post{border-bottom:1px solid var(--border)!important}
