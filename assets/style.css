@@ -23,7 +23,8 @@ body[data-theme="light"] .bg-animate{background-color:var(--bg);background:linea
 .markdown-section pre code{color:var(--text)}
 .markdown-section a{color:var(--link);text-decoration:none;transition:color .2s}
 .markdown-section a:hover{color:var(--link-hover);text-decoration:underline}
-.markdown-section blockquote{border-left:4px solid var(--link);padding-left:1em;color:var(--text-secondary);font-style:italic}
+.markdown-section blockquote{border-left:4px solid var(--link);padding:0.8em 1em;margin:1em 0;color:var(--text-secondary)!important;font-style:italic;background:rgba(125,211,252,0.05);border-radius:8px}
+.markdown-section blockquote p{color:var(--text-secondary)!important}
 .markdown-section table{border-collapse:collapse;width:100%;margin:1em 0}
 .markdown-section table th,.markdown-section table td{border:1px solid var(--border);padding:0.6em 1em;color:var(--text)}
 .markdown-section table th{background:var(--code-bg);font-weight:600;color:var(--heading-color)}
