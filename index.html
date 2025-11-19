@@ -68,9 +68,74 @@
         }
       })()
     </script>
+    <script>
+      // 侧边栏可拖动调整宽度
+      (function(){
+        let isResizing = false;
+        let startX = 0;
+        let startWidth = 0;
+        
+        window.$docsify = window.$docsify || {};
+        const originalReady = window.$docsify.plugins || [];
+        
+        window.$docsify.plugins = [].concat(originalReady, function(hook) {
+          hook.mounted(function() {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar) return;
+            
+            // 创建拖动手柄
+            const resizer = document.createElement('div');
+            resizer.className = 'sidebar-resizer';
+            resizer.innerHTML = '<div class="sidebar-resizer-line"></div>';
+            sidebar.appendChild(resizer);
+            
+            // 从 localStorage 恢复宽度
+            const savedWidth = localStorage.getItem('sidebar-width');
+            if (savedWidth) {
+              sidebar.style.width = savedWidth + 'px';
+            }
+            
+            // 鼠标按下
+            resizer.addEventListener('mousedown', function(e) {
+              isResizing = true;
+              startX = e.clientX;
+              startWidth = sidebar.offsetWidth;
+              document.body.style.cursor = 'col-resize';
+              document.body.style.userSelect = 'none';
+            });
+            
+            // 鼠标移动
+            document.addEventListener('mousemove', function(e) {
+              if (!isResizing) return;
+              
+              const width = startWidth + (e.clientX - startX);
+              // 限制宽度范围：200px - 600px
+              if (width >= 200 && width <= 600) {
+                sidebar.style.width = width + 'px';
+              }
+            });
+            
+            // 鼠标释放
+            document.addEventListener('mouseup', function() {
+              if (isResizing) {
+                isResizing = false;
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+                // 保存宽度
+                localStorage.setItem('sidebar-width', sidebar.offsetWidth);
+              }
+            });
+          });
+        });
+      })()
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+    <!-- 数学公式支持 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+    <!-- 代码高亮 -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>

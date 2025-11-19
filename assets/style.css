@@ -1,5 +1,5 @@
-:root{--theme-hue:200;--theme-saturation:100%;--theme-lightness:60%;--base-font-size:17px;--content-max-width:860px;--sidebar-width:250px;--bg:#0b1220;--text:#e5e7eb;--header-bg:rgba(13,20,35,.6);--border:rgba(148,163,184,.18);--nav-link-color:#cbd5e1;--nav-link-hover-bg:rgba(148,163,184,.16);--card-bg:rgba(17,24,39,.6);--code-bg:#0f172a;--link:#7dd3fc;--sidebar-bg:rgba(15,23,42,.55);--search-bg:rgba(2,6,23,.6)}
-body[data-theme="light"]{--bg:#f8fafc;--text:#0f172a;--header-bg:rgba(255,255,255,.65);--border:rgba(15,23,42,.12);--nav-link-color:#334155;--nav-link-hover-bg:rgba(2,6,23,.06);--card-bg:rgba(255,255,255,.7);--code-bg:#f3f4f6;--link:#0ea5e9;--sidebar-bg:rgba(255,255,255,.7);--search-bg:rgba(255,255,255,.7)}
+:root{--theme-hue:200;--theme-saturation:100%;--theme-lightness:60%;--base-font-size:17px;--content-max-width:860px;--sidebar-width:250px;--bg:#0b1220;--text:#f1f5f9;--text-secondary:#cbd5e1;--header-bg:rgba(13,20,35,.6);--border:rgba(148,163,184,.18);--nav-link-color:#e2e8f0;--nav-link-hover-bg:rgba(148,163,184,.16);--card-bg:rgba(17,24,39,.75);--code-bg:#0f172a;--link:#7dd3fc;--link-hover:#38bdf8;--sidebar-bg:rgba(15,23,42,.65);--search-bg:rgba(2,6,23,.7);--heading-color:#f8fafc}
+body[data-theme="light"]{--bg:#f8fafc;--text:#1e293b;--text-secondary:#475569;--header-bg:rgba(255,255,255,.75);--border:rgba(15,23,42,.12);--nav-link-color:#1e293b;--nav-link-hover-bg:rgba(2,6,23,.08);--card-bg:rgba(255,255,255,.85);--code-bg:#f1f5f9;--link:#0284c7;--link-hover:#0ea5e9;--sidebar-bg:rgba(255,255,255,.85);--search-bg:rgba(255,255,255,.85);--heading-color:#0f172a}
 html,body{min-height:100%}
 body{font-family:'Inter','Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:var(--bg);color:var(--text);position:relative}
 .bg-animate{position:absolute;inset:0;min-height:100%;z-index:-1;pointer-events:none;background-color:var(--bg);background:linear-gradient(to bottom,rgba(2,6,23,.18),rgba(2,6,23,.28)),radial-gradient(120vmax 60vmax at 20% 20%,rgba(56,189,248,.22),transparent),radial-gradient(90vmax 50vmax at 80% 30%,rgba(99,102,241,.22),transparent),radial-gradient(100vmax 80vmax at 50% 100%,rgba(56,189,248,.16),transparent),radial-gradient(80vmax 80vmax at 50% 80%,rgba(34,197,94,.16),transparent)}
@@ -9,21 +9,46 @@ body[data-theme="light"] .bg-animate{background-color:var(--bg);background:linea
 .site-nav .nav-link{color:var(--nav-link-color);text-decoration:none;margin-left:16px;padding:8px 12px;border-radius:10px;transition:all .2s;border:none;background:transparent}
 .site-nav .nav-link:hover{color:var(--text);background:var(--nav-link-hover-bg)}
 #app{padding:30px 16px}
-.markdown-section{max-width:var(--content-max-width);margin:0 auto;border-radius:18px;padding:28px;background:var(--card-bg);box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04);border:1px solid var(--border)}
-.markdown-section h1,.markdown-section h2,.markdown-section h3{scroll-margin-top:90px}
-.markdown-section pre{border-radius:14px;background:var(--code-bg)}
-.markdown-section code{font-size:.95em}
-.markdown-section a{color:var(--link)}
-.sidebar,.sidebar-nav{backdrop-filter:saturate(1.4) blur(10px)!important;background:var(--sidebar-bg)!important;border-right:1px solid var(--border)!important}
+.markdown-section{max-width:var(--content-max-width);margin:0 auto;border-radius:18px;padding:28px;background:var(--card-bg);box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text)}
+.markdown-section h1,.markdown-section h2,.markdown-section h3{scroll-margin-top:90px;color:var(--heading-color)!important;font-weight:700}
+.markdown-section h1{font-size:2em;margin-top:0}
+.markdown-section h2{font-size:1.6em;margin-top:1.5em;border-bottom:1px solid var(--border);padding-bottom:0.3em}
+.markdown-section h3{font-size:1.3em;margin-top:1.2em}
+.markdown-section h4{font-size:1.1em;color:var(--text);font-weight:600}
+.markdown-section p{line-height:1.7;color:var(--text)}
+.markdown-section li{line-height:1.6;color:var(--text)}
+.markdown-section strong{color:var(--heading-color);font-weight:600}
+.markdown-section pre{border-radius:14px;background:var(--code-bg);border:1px solid var(--border)}
+.markdown-section code{font-size:.95em;color:var(--link)}
+.markdown-section pre code{color:var(--text)}
+.markdown-section a{color:var(--link);text-decoration:none;transition:color .2s}
+.markdown-section a:hover{color:var(--link-hover);text-decoration:underline}
+.markdown-section blockquote{border-left:4px solid var(--link);padding-left:1em;color:var(--text-secondary);font-style:italic}
+.markdown-section table{border-collapse:collapse;width:100%;margin:1em 0}
+.markdown-section table th,.markdown-section table td{border:1px solid var(--border);padding:0.6em 1em;color:var(--text)}
+.markdown-section table th{background:var(--code-bg);font-weight:600;color:var(--heading-color)}
+.sidebar,.sidebar-nav{backdrop-filter:saturate(1.4) blur(10px)!important;background:var(--sidebar-bg)!important;border-right:1px solid var(--border)!important;position:relative}
 .sidebar ul li a{color:var(--text)!important;transition:all .2s}
 .sidebar ul li a:hover{color:var(--link)!important}
 .sidebar ul li.active>a{color:var(--link)!important;border-right:2px solid var(--link)!important}
 .sidebar>h1{color:var(--text)!important}
 .sidebar>h1 a{color:var(--text)!important}
+/* 侧边栏拖动手柄 */
+.sidebar-resizer{position:absolute;right:0;top:0;bottom:0;width:8px;cursor:col-resize;z-index:100;display:flex;align-items:center;justify-content:center}
+.sidebar-resizer:hover .sidebar-resizer-line{background:var(--link);opacity:1}
+.sidebar-resizer-line{width:2px;height:40px;background:var(--border);border-radius:2px;opacity:0.5;transition:all .2s}
+.sidebar-resizer:active .sidebar-resizer-line{background:var(--link);opacity:1;height:60px}
 .search{backdrop-filter:saturate(1.3) blur(10px)!important;background:var(--search-bg)!important;border:1px solid var(--border)!important}
 .search input{background:transparent!important;color:var(--text)!important}
 .search input::placeholder{color:var(--nav-link-color)!important}
 /* Avoid overlap between Docsify sidebar toggle and site header brand */
 .sidebar-toggle{top:72px}
+/* 数学公式样式 */
+.katex{font-size:1.1em}
+.katex-display{overflow-x:auto;overflow-y:hidden;padding:1em 0}
+.markdown-section .katex-display{background:var(--code-bg);border-radius:8px;padding:1.2em;margin:1em 0;border:1px solid var(--border)}
+.katex .katex-html{color:var(--text)}
+/* 行内数学公式 */
+.markdown-section p .katex,.markdown-section li .katex{color:var(--link);background:rgba(125,211,252,0.1);padding:0.1em 0.3em;border-radius:4px}
 @media (max-width: 960px){.site-header{padding:10px 14px}.site-nav .nav-link{margin-left:8px;padding:6px 10px}#app{padding:18px 10px}.markdown-section{padding:20px;border-radius:16px}}
 @media (max-width: 960px){.sidebar-toggle{top:58px}}
