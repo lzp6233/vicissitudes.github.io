@@ -40,7 +40,9 @@ body[data-theme="light"] .bg-animate{background-color:var(--bg);background:linea
 .sidebar ul li.active>a{color:var(--link)!important;border-right:2px solid var(--link)!important}
 .sidebar>h1{color:var(--text)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sidebar>h1 a{color:var(--text)!important}
-/* 直接修改Docsify搜索框组件样式 */
+/* 直接修改Docsify搜索框组件样式，移除外层容器样式 */
+.sidebar .search,
+.search{margin:0!important;padding:0!important;background:transparent!important;border:none!important}
 .sidebar .search input,
 .sidebar .search .input,
 .sidebar .search input[type="text"],
