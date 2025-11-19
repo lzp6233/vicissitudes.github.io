@@ -3,6 +3,7 @@
 * [归档](posts/index.md)
 * [分类](categories.md)
 * 📄 文章
+  * [数学公式测试](posts/2025/math-test.md)
   * [动态规划笔记（这是ai生成的）](posts/2025/dp-intro.md)
   * [CSS 玻璃态效果(自动生成)](posts/2025/glassmorphism.md)
   * [周记：2025-11-08](posts/2025/weekly-2025-11-08.md)

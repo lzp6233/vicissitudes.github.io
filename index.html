@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.min.css">
+    <!-- KaTeX CSS - 需要在自定义样式之前加载 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="./assets/style.css">
     <meta name="theme-color" content="#0ea5e9">
   </head>
@@ -93,6 +95,11 @@
             const savedWidth = localStorage.getItem('sidebar-width');
             if (savedWidth) {
               sidebar.style.width = savedWidth + 'px';
+              // 同时设置主内容区域的左边距
+              const mainContent = document.querySelector('.content');
+              if (mainContent) {
+                mainContent.style.marginLeft = savedWidth + 'px';
+              }
             }
             
             // 鼠标按下
@@ -112,6 +119,11 @@
               // 限制宽度范围：200px - 600px
               if (width >= 200 && width <= 600) {
                 sidebar.style.width = width + 'px';
+                // 同时调整主内容区域的左边距
+                const mainContent = document.querySelector('.content');
+                if (mainContent) {
+                  mainContent.style.marginLeft = width + 'px';
+                }
               }
             });
             
@@ -129,12 +141,54 @@
         });
       })()
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- Docsify 核心 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+    <!-- 数学公式支持 - 必须在 Docsify 之后加载 -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4/lib/marked.umd.js"></script>
+    <script>
+      // 配置 marked 支持 KaTeX
+      const renderer = new marked.Renderer();
+      const originalParagraph = renderer.paragraph.bind(renderer);
+      
+      renderer.paragraph = function(text) {
+        // 处理块级公式 $$...$$
+        const blockRegex = /\$\$([\s\S]+?)\$\$/g;
+        text = text.replace(blockRegex, function(match, formula) {
+          try {
+            return '<div class="katex-block">' + katex.renderToString(formula, {
+              displayMode: true,
+              throwOnError: false
+            }) + '</div>';
+          } catch (e) {
+            return '<div class="katex-error">' + e.message + '</div>';
+          }
+        });
+        
+        // 处理行内公式 $...$
+        const inlineRegex = /\$([^\$]+?)\$/g;
+        text = text.replace(inlineRegex, function(match, formula) {
+          try {
+            return katex.renderToString(formula, {
+              displayMode: false,
+              throwOnError: false
+            });
+          } catch (e) {
+            return '<span class="katex-error">' + e.message + '</span>';
+          }
+        });
+        
+        return originalParagraph(text);
+      };
+      
+      // 配置 Docsify 使用自定义 renderer
+      window.$docsify = window.$docsify || {};
+      window.$docsify.markdown = window.$docsify.markdown || {};
+      window.$docsify.markdown.renderer = renderer;
+    </script>
+    <!-- Docsify 插件 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
-    <!-- 数学公式支持 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
     <!-- 代码高亮 -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
