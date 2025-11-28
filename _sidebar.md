@@ -31,3 +31,5 @@
   * [分布式系统抽象与广播协议](posts/2025/DISTRIBUTE/abstract.md)
 * 🤖 AI 笔记
   * [生成式ai时代下的ML](posts/2025/GENAI/gener-ai.md)
+* 📁 network
+  * [计算机网络之 网尽其用](posts/2025/network/utility.md)
