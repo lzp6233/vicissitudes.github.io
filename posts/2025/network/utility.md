@@ -309,6 +309,7 @@ $$
   + 构造协议数据单元 (PDU)
 
 + 控制信息主要包括:
+
   + **地址（Address）**: 标识发送端/接收端
   + **差错检测编码（Error-detecting code）**: 用于差错检测或纠正
   + **协议控制（Protocol control）**: 实现协议功能的附加信息，如: 优先级（priority）、服务质量（QoS）、和安全控制等
@@ -501,3 +502,235 @@ $$
   + 消息的语法
     + 字段
     + 描述
+
+### 网络应用需求与传输层服务
+
++ 数据丢失与可靠性
+  + 能否容忍数据丢失
++ 时间延迟
+  + 有些应用只有在延迟足够低时才有效
++ 带宽
+  + 某些应用只有在带宽达到最低要求时才有效：网络视频
+  + email可以不要求带宽
++ 安全要求
+
+#### Internet提供的传输服务
+
++ TCP
+  + 面向连接
+  + 可靠传输
+  + 流量控制
+  + 拥塞控制
+  + 不提供时间延迟保障
+  + 不提供最小带宽保障
++ UDP
+  + 无连接
+  + 不可靠的数据传输
+  + 不提供
+    + 可靠性保障
+    + 流量控制
+    + 拥塞控制
+    + 延迟保障
+    + 带宽保障
+
+| Application            | Application layer protocol             | Underlying transport protocol |
+| ---------------------- | -------------------------------------- | ----------------------------- |
+| e-mail                 | SMTP [RFC 2821]                        | TCP                           |
+| remote terminal access | Telnet [RFC 854]                       | TCP                           |
+| Web                    | HTTP [RFC 2616]                        | TCP                           |
+| file transfer          | FTP [RFC 959]                          | TCP                           |
+| streaming multimedia   | proprietary<br>(e.g. RealNetworks)     | TCP or UDP                    |
+| Internet telephony     | proprietary<br>(e.g., Vonage, Dialpad) | typically UDP                 |
+
+### WEB应用概述
+
+#### World Wide Web: Tim Berners-Lee
+
+- 网页
+- 网页互相链接
+
+#### 网页(Web Page)包含多个对象(objects)
+
+- 对象：HTML文件、JPEG图片、视频文件、动态脚本等
+- 基本HTML文件：包含对其他对象引用的链接
+
+#### 对象的寻址(addressing)
+
+- URL (Uniform Resource Locator)：统一资源定位器 RFC1738
+- scheme://host:port/path
+
+### HTTP概述
+
++ 超文本传输协议
+  + HyperText Transfer Protocol
++ CS结构
+  + Brower：
+  + Web Server： Apache
+
++ 使用TCP传输服务
+  + 服务器在**80端口**等待客户的请求
+  - 浏览器发起到服务器的TCP连接(创建套接字Socket)
+  - 服务器接受来自浏览器的TCP连接
+  - 浏览器(HTTP客户端)与Web服务器(HTTP服务器)交换HTTP消息
+  - 关闭TCP连接
++ 无状态（stateless）
+  - 服务器不维护任何有关客户端过去所发请求的信息
+  - 减小复杂性
+
+### HTTP连接类型
+
++ 非持久性连接
+
+  + 每个TCP连接最多允许传输一个对象
+
+    ![image-20251130165245762](utility.assets/image-20251130165245762.png)
+
+    ![image-20251130165403773](utility.assets/image-20251130165403773.png)
+    $$
+    Total = 2RTT + 文件发送时间
+    $$
+    ![image-20251130165603898](utility.assets/image-20251130165603898.png)
+
+  + 时间慢
+
++ 持久性连接
+
+  + 每个TCP连接允许传输多个对象
+  + 无流水线的持久性连接
+    + 客户端只有收到前一个响应之后才发送新请求
+    + 每个被引用的对象耗时一个RTT
+  + 有流水机制的持久连接
+    + 客户端只要遇到一个引用对象就尽快发送请求
+    + 理论上收到所有对象只用一个RTT
+
+### HTTP消息格式
+
++ HTTP协议有两类消息
+
+  + 请求消息（request）
+  + 响应消息（response）
+
++ 请求消息
+
+  + ASCII 人类可读
+
+  ![image-20251130170411005](utility.assets/image-20251130170411005.png)
+
+  ![image-20251130170441462](utility.assets/image-20251130170441462.png)
+
+#### 上传输入方法
+
++ POST
+  + 填写表格
++ URL方法
+  + GET方法
+  + 信息通过request行的URL字段上传
+
+#### 方法的类型
+
+![image-20251130170718511](utility.assets/image-20251130170718511.png)
+
++ 响应消息
+
+![image-20251130170833941](utility.assets/image-20251130170833941.png)
+
+> date：生成响应时间
+>
+> Last-modified：上次修改时间
+
++ 响应状态代码
+  + 200 OK
+  + 301 Moved Permanently
+  + 400 Bad Request
+  + 404 Not Found
+  + 505 HTTP Version Not Supported
+
+### Cookie 技术
+
+> 为什么需要cookie？
+>
+> HTTP无状态，但很多应用需要掌握客户端状态，如网上购物
+
++ Cookie技术
+  + 某些网站为了辨别用户身份、进行**session**跟踪而储存在用户本地终端上的数据（通常经过加密）。
+  + RFC6265
+
++ Cookie的组件
+  + HTTP响应消息的cookie头部行
+  - HTTP请求消息的cookie头部行
+  - 保存在客户端主机上的cookie文件，由浏览器管理
+  - Web服务器端的后台数据库
+
+![image-20251130172055757](utility.assets/image-20251130172055757.png)
+
++ Cookie的作用
+
+  + 身份认证
+  + 购物车
+  + 推荐
+  + Web email
+
++ 隐私问题
+
++ > Cookie 能够怎样被用于收集隐私？能收集到哪些隐私？
+  >
+  > 1. 追踪 (Tracking)
+  >
+  >    最主要的用途是追踪您的在线行为。
+  >
+  > - **第一方 Cookie (First-party Cookies):** 由您正在访问的网站直接设置。它们主要用于记住您的偏好（如语言设置、登录状态、购物车内容），但也可以追踪您在该网站内的活动。
+  > - **第三方 Cookie (Third-party Cookies):** 由您正在访问的网站以外的 **domains** 设置。这些通常来自广告商或社交媒体公司，它们通过在成千上万的网站上植入相同的 Cookie，来跨网站追踪您的浏览历史，建立您的 **profile**。
+  >
+  > 2. **Session** 管理
+  >
+  > 用于维护您的登录状态，虽然这本身是功能性的，但如果 Cookie 被盗（例如通过 **Cross-Site Scripting (XSS)** 攻击），攻击者就可以冒充您登录。
+  >
+  > 3. **Personalization** 和目标广告
+  >
+  > 收集关于您兴趣和行为的数据，以便向您展示相关的广告或个性化的内容。
+  >
+  > 好的，我将用简体中文回答，并在关键名词部分使用 **英文 (English)** 替换。
+  >
+  > Cookie 是一种在您浏览 **websites** 时，由服务器发送给您的 **web browser** 并存储在您设备上的小型文本文件。它们被广泛用于各种目的，但确实是收集用户 **privacy** 的一个重要工具。
+  >
+  > ##### 🕵️‍♀️ Cookie 可以收集到哪些 **Privacy** 信息？
+  >
+  > Cookie **本身** 并不直接包含您的真实姓名、地址等敏感信息，但它们包含的 **unique identifier (唯一标识符)** 允许将收集到的行为数据与您的设备和 **profile** 相关联。
+  >
+  > 以下是 Cookie 能够间接或直接收集到的主要信息类型：
+  >
+  > | 信息类别                                   | 描述                                                         |
+  > | ------------------------------------------ | ------------------------------------------------------------ |
+  > | **Browsing History** (浏览历史)            | 您访问了哪些网站、页面，以及在这些页面上停留了多长时间。     |
+  > | **Preferences** (偏好设置)                 | 您的语言选择、显示设置、字体大小等。                         |
+  > | **Login Status** (登录状态)                | 您是否已登录某个网站。                                       |
+  > | **Geographic Location** (地理位置)         | 通常是基于您的 **IP address** 推断出的大致位置。             |
+  > | **Device Information** (设备信息)          | 您的 **browser** 类型和版本、操作系统、屏幕分辨率。          |
+  > | **Shopping Cart Contents** (购物车内容)    | 您在电子商务网站中添加但尚未购买的商品。                     |
+  > | **Click/Interaction Data** (点击/互动数据) | 您点击了哪些链接、填写了哪些表单、进行了哪些操作。           |
+  > | **Unique User ID** (唯一用户 ID)           | 用于识别您的浏览器并将其活动链接到您的 **profile** 的随机字符串。 |
+  >
+  > ##### 🛡️ 如何保护您的 **Privacy**？
+  >
+  > 为了限制 Cookie 收集您的隐私，您可以采取以下措施：
+  >
+  > 1. **定期清理 Cookie (Clear Cookies):** 定期清除浏览器中的 Cookie。
+  > 2. **使用隐身模式 (Incognito/Private Mode):** 在此模式下，大多数 Cookie 在窗口关闭后会被删除。
+  > 3. **阻止第三方 Cookie (Block Third-party Cookies):** 大多数现代浏览器都允许您在设置中阻止第三方 Cookie。
+  > 4. **使用浏览器扩展 (Browser Extensions):** 如 **ad blockers** 或 **privacy extensions**，它们可以阻止追踪脚本和 Cookie。
+  > 5. **VPN 或 Tor (Virtual Private Network):** 使用这些工具可以隐藏您的 **IP address**。
+
+### WEB缓存/代理服务器技术
+
++ 在不访问服务器的前提下满足客户端的HTTP技术
++ 缩短客户请求响应时间
++ 减少机构/组织流量
++ 在大范围内实现有效的内容分发
+
+![image-20251130172941427](utility.assets/image-20251130172941427.png)
+
++ 用户设定浏览器通过缓存进行Web访问
++ 浏览器向缓存/代理服务器发送所有的HTTP请求
+  + 如果请求对象在缓存中，直接返回对象
+  + 否则，宰相原始服务器发送HTTP请求，在返回给客户端
++ 一般由ISP架设
