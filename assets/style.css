@@ -66,6 +66,7 @@ html,
 body {
   min-height: 100%;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -325,6 +326,8 @@ body::after {
   position: fixed !important;
   /* Ensure it's fixed */
   z-index: 90;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sidebar::-webkit-scrollbar {
