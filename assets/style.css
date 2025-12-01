@@ -8,7 +8,7 @@
   --dark-bg: #050505;
   --darker-bg: #020202;
   --grid-line: rgba(0, 243, 255, 0.1);
-  
+
   /* Theme Variables */
   --theme-hue: 200;
   --theme-saturation: 100%;
@@ -16,7 +16,8 @@
   --base-font-size: 16px;
   --content-max-width: 900px;
   --sidebar-width: 300px;
-  
+  --header-height: 70px;
+
   --bg: var(--dark-bg);
   --text: #e0e0e0;
   --text-secondary: #a0a0a0;
@@ -32,7 +33,7 @@
   --search-bg: rgba(0, 0, 0, 0.8);
   --heading-color: #fff;
   --search-placeholder-color: #555;
-  
+
   /* Fonts */
   --font-main: 'Inter', sans-serif;
   --font-header: 'Orbitron', sans-serif;
@@ -45,7 +46,8 @@ body[data-theme="light"] {
   --text: #1a1a1a;
   --text-secondary: #4a4a4a;
   --header-bg: rgba(255, 255, 255, 0.9);
-  --border: #0088cc; /* Tech Blue */
+  --border: #0088cc;
+  /* Tech Blue */
   --nav-link-color: #4a4a4a;
   --nav-link-hover-bg: rgba(0, 136, 204, 0.1);
   --card-bg: rgba(255, 255, 255, 0.8);
@@ -60,7 +62,8 @@ body[data-theme="light"] {
 }
 
 /* ==================== 基础样式 ==================== */
-html, body {
+html,
+body {
   min-height: 100%;
   overflow-x: hidden;
 }
@@ -81,8 +84,8 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: 
-    linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%),
+  background:
+    linear-gradient(transparent 0%, rgba(0, 0, 0, 0.8) 100%),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
     linear-gradient(var(--grid-line) 1px, transparent 1px);
   background-size: 100% 100%, 40px 40px, 40px 40px;
@@ -92,8 +95,13 @@ body {
 }
 
 @keyframes gridMove {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 0 0, 0 40px, 0 40px; }
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 0, 0 40px, 0 40px;
+  }
 }
 
 /* Scanline Effect */
@@ -113,8 +121,12 @@ body::after {
 
 /* ==================== 头部样式 ==================== */
 .site-header {
-  position: sticky;
+  position: fixed;
+  /* Changed to fixed to ensure it stays top even if scroll context changes */
   top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
   backdrop-filter: blur(10px);
   background: var(--header-bg);
   border-bottom: 1px solid var(--border);
@@ -122,7 +134,8 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 30px;
+  padding: 0 30px;
+  /* Adjusted padding since height is fixed */
   z-index: 100;
 }
 
@@ -158,6 +171,8 @@ body::after {
 /* ==================== 内容区域样式 ==================== */
 #app {
   padding: 40px 20px;
+  padding-top: calc(var(--header-height) + 40px);
+  /* Add padding to account for fixed header */
 }
 
 .markdown-section {
@@ -168,12 +183,14 @@ body::after {
   border: 1px solid var(--border);
   box-shadow: 0 0 20px rgba(0, 243, 255, 0.05);
   backdrop-filter: blur(5px);
-  border-radius: 4px; /* Techy sharp corners */
+  border-radius: 4px;
+  /* Techy sharp corners */
   position: relative;
 }
 
 /* Decorative Corner Accents */
-.markdown-section::before, .markdown-section::after {
+.markdown-section::before,
+.markdown-section::after {
   content: '';
   position: absolute;
   width: 20px;
@@ -196,7 +213,10 @@ body::after {
   border-top: none;
 }
 
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4 {
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4 {
   font-family: var(--font-header);
   color: var(--heading-color) !important;
   text-transform: uppercase;
@@ -218,7 +238,8 @@ body::after {
   padding-left: 15px;
 }
 
-.markdown-section p, .markdown-section li {
+.markdown-section p,
+.markdown-section li {
   line-height: 1.8;
   color: var(--text);
   font-size: 1.05rem;
@@ -233,7 +254,7 @@ body::after {
   background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: 4px;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .markdown-section code {
@@ -276,8 +297,9 @@ body::after {
   border: 1px solid var(--border);
 }
 
-.markdown-section table th, .markdown-section table td {
-  border: 1px solid rgba(255,255,255,0.1);
+.markdown-section table th,
+.markdown-section table td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 12px;
 }
 
@@ -295,6 +317,14 @@ body::after {
   border-right: 1px solid var(--border) !important;
   backdrop-filter: blur(10px);
   width: var(--sidebar-width) !important;
+  top: var(--header-height) !important;
+  /* Start below header */
+  height: calc(100vh - var(--header-height)) !important;
+  /* Adjust height */
+  padding-top: 20px;
+  position: fixed !important;
+  /* Ensure it's fixed */
+  z-index: 90;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -319,33 +349,36 @@ body::after {
   background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), transparent);
 }
 
-.sidebar ul li.active > a {
+.sidebar ul li.active>a {
   color: var(--neon-pink) !important;
   border-left-color: var(--neon-pink);
   background: linear-gradient(90deg, rgba(255, 0, 255, 0.1), transparent);
   text-shadow: 0 0 5px var(--neon-pink);
 }
 
-.sidebar > h1 {
+.sidebar>h1 {
   font-family: var(--font-header);
   color: var(--neon-cyan) !important;
 }
 
-.sidebar > h1 a {
+.sidebar>h1 a {
   color: var(--neon-cyan) !important;
 }
 
 /* ==================== 搜索框样式 ==================== */
-.sidebar .search, .search {
+.sidebar .search,
+.search {
   margin-bottom: 20px !important;
 }
 
-.sidebar .search input, .search input {
+.sidebar .search input,
+.search input {
   background: var(--search-bg) !important;
   color: var(--neon-green) !important;
   border: 1px solid var(--neon-green) !important;
   font-family: var(--font-code) !important;
-  border-radius: 0 !important; /* Terminal style */
+  border-radius: 0 !important;
+  /* Terminal style */
   padding: 10px !important;
   box-shadow: 0 0 5px rgba(0, 255, 159, 0.2) !important;
 }
@@ -380,15 +413,32 @@ body::after {
 /* ==================== 响应式设计 ==================== */
 @media (max-width: 960px) {
   .site-header {
-    padding: 10px 15px;
+    padding: 0 15px;
   }
-  
+
+  .sidebar-toggle {
+    top: calc(var(--header-height) + 10px) !important;
+    /* Adjust toggle position */
+    left: 10px !important;
+  }
+
+  .sidebar {
+    top: 0 !important;
+    /* On mobile, sidebar usually covers everything or slides in, let Docsify handle or reset */
+    height: 100vh !important;
+    z-index: 101 !important;
+    /* Above header on mobile if open */
+    padding-top: 60px;
+    /* Space for close button or header */
+  }
+
   .markdown-section {
     padding: 20px;
   }
-  
+
   .bg-animate {
-    background-size: 100% 100%, 20px 20px, 20px 20px; /* Smaller grid on mobile */
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+    /* Smaller grid on mobile */
   }
 }
 
@@ -396,8 +446,9 @@ body::after {
 .katex {
   color: var(--text) !important;
 }
+
 .katex-block {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid var(--border);
   box-shadow: none;
 }
