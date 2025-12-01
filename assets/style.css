@@ -416,7 +416,7 @@ body[data-theme="light"] .bg-animate{
   color:var(--text)!important /* 使用变量设置文字颜色 */
 }
 
-/* 搜索结果描述样式 */
+/* 搜索结果描述样式 */ +++
 .results-panel .matching-post p{
   color:var(--text-secondary)!important /* 使用变量设置文字颜色 */
 }
