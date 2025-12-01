@@ -868,3 +868,28 @@ $$
 
 ![image-20251201115456832](utility.assets/image-20251201115456832.png)
 
++ DNS记录缓存与更新
+  + 缓存映射，一段时间后，缓存条目删除
+  + 本地域名一般会缓存顶级域名服务器的映射
+    + 因此根域名服务器不经常被访问
+
+### DNS记录
+
++ 资源记录
+  + RR format(name, value, type, ttl)
+  + type=A
+    + Name 主机域名
+    + Value IP
+  + type=NS
+    + Name 域（edu.cn)
+    + Value 该域权威域名解析服务器的主机域名
+  + type=CNAME
+    + Name 某一个真实域名的别名
+    + 真实域名
+  + type=MX
+    + Value是与name对应的邮件服务器
++ DNS协议与消息
+  + query and reply
+  + 消息格式相同
+  + ![image-20251201121001495](utility.assets/image-20251201121001495.png)
+
