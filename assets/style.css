@@ -1,509 +1,403 @@
 /* ==================== CSS变量定义 ==================== */
-/* 深色模式(默认)的主题变量 */
-:root{
-  --theme-hue:200; /* 主题色调 */
-  --theme-saturation:100%; /* 主题饱和度 */
-  --theme-lightness:60%; /* 主题亮度 */
-  --base-font-size:17px; /* 基础字体大小 */
-  --content-max-width:860px; /* 内容区域最大宽度 */
-  --sidebar-width:320px; /* 侧边栏宽度 */
-  --bg:#0b1220; /* 背景色 - 深蓝色 */
-  --text:#f1f5f9; /* 主要文字颜色 - 浅灰色 */
-  --text-secondary:#cbd5e1; /* 次要文字颜色 - 中灰色 */
-  --header-bg:rgba(13,20,35,.6); /* 头部背景色 - 半透明深蓝 */
-  --border:rgba(148,163,184,.18); /* 边框颜色 - 低透明度灰色 */
-  --nav-link-color:#e2e8f0; /* 导航链接颜色 - 浅灰色 */
-  --nav-link-hover-bg:rgba(148,163,184,.16); /* 导航链接悬停背景色 */
-  --card-bg:rgba(17,24,39,.75); /* 卡片背景色 - 半透明深蓝 */
-  --code-bg:#0f172a; /* 代码块背景色 - 深蓝色 */
-  --link:#7dd3fc; /* 链接颜色 - 亮蓝色 */
-  --link-hover:#38bdf8; /* 链接悬停颜色 - 中蓝色 */
-  --sidebar-bg:rgba(15,23,42,.65); /* 侧边栏背景色 - 半透明深蓝 */
-  --search-bg:rgba(15,23,42,.95); /* 搜索框背景色 - 深蓝色 */
-  --heading-color:#f8fafc; /* 标题颜色 - 浅灰白色 */
-  --search-placeholder-color:#f8fafc /* 搜索框占位符颜色 - 白色 */
+:root {
+  /* Cyberpunk Neon Palette */
+  --neon-cyan: #00f3ff;
+  --neon-pink: #ff00ff;
+  --neon-purple: #bd00ff;
+  --neon-green: #00ff9f;
+  --dark-bg: #050505;
+  --darker-bg: #020202;
+  --grid-line: rgba(0, 243, 255, 0.1);
+  
+  /* Theme Variables */
+  --theme-hue: 200;
+  --theme-saturation: 100%;
+  --theme-lightness: 60%;
+  --base-font-size: 16px;
+  --content-max-width: 900px;
+  --sidebar-width: 300px;
+  
+  --bg: var(--dark-bg);
+  --text: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --header-bg: rgba(5, 5, 5, 0.8);
+  --border: var(--neon-cyan);
+  --nav-link-color: #a0a0a0;
+  --nav-link-hover-bg: rgba(0, 243, 255, 0.1);
+  --card-bg: rgba(10, 10, 10, 0.6);
+  --code-bg: #0a0a0a;
+  --link: var(--neon-cyan);
+  --link-hover: var(--neon-pink);
+  --sidebar-bg: rgba(5, 5, 5, 0.9);
+  --search-bg: rgba(0, 0, 0, 0.8);
+  --heading-color: #fff;
+  --search-placeholder-color: #555;
+  
+  /* Fonts */
+  --font-main: 'Inter', sans-serif;
+  --font-header: 'Orbitron', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
 }
 
-/* 浅色模式的主题变量 */
-body[data-theme="light"]{
-  --bg:#f8fafc; /* 背景色 - 浅灰白色 */
-  --text:#1e293b; /* 主要文字颜色 - 深灰色 */
-  --text-secondary:#475569; /* 次要文字颜色 - 中灰色 */
-  --header-bg:rgba(255,255,255,.75); /* 头部背景色 - 半透明白色 */
-  --border:rgba(15,23,42,.12); /* 边框颜色 - 低透明度深蓝 */
-  --nav-link-color:#1e293b; /* 导航链接颜色 - 深灰色 */
-  --nav-link-hover-bg:rgba(2,6,23,.08); /* 导航链接悬停背景色 */
-  --card-bg:rgba(255,255,255,.85); /* 卡片背景色 - 半透明白色 */
-  --code-bg:#f1f5f9; /* 代码块背景色 - 浅灰白色 */
-  --link:#0284c7; /* 链接颜色 - 中蓝色 */
-  --link-hover:#0ea5e9; /* 链接悬停颜色 - 亮蓝色 */
-  --sidebar-bg:rgba(255,255,255,.85); /* 侧边栏背景色 - 半透明白色 */
-  --search-bg:rgba(255,255,255,.85); /* 搜索框背景色 - 白色 */
-  --heading-color:#0f172a; /* 标题颜色 - 深蓝色 */
-  --search-placeholder-color:#64748b /* 搜索框占位符颜色 - 灰色 */
+/* Light Mode - "High-Tech White" */
+body[data-theme="light"] {
+  --bg: #f0f2f5;
+  --text: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --border: #0088cc; /* Tech Blue */
+  --nav-link-color: #4a4a4a;
+  --nav-link-hover-bg: rgba(0, 136, 204, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --code-bg: #e6e8eb;
+  --link: #0088cc;
+  --link-hover: #005580;
+  --sidebar-bg: rgba(255, 255, 255, 0.95);
+  --search-bg: rgba(255, 255, 255, 0.9);
+  --heading-color: #003366;
+  --search-placeholder-color: #888;
+  --grid-line: rgba(0, 136, 204, 0.05);
 }
 
 /* ==================== 基础样式 ==================== */
-/* HTML和body的基础样式 */
-html,body{
-  min-height:100% /* 确保页面至少占满整个视口高度 */
+html, body {
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
-body{
-  font-family:'Inter','Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; /* 设置字体族，优先使用Inter，然后是中文Noto Sans SC */
-  background:var(--bg); /* 使用变量设置背景色 */
-  color:var(--text); /* 使用变量设置文字颜色 */
-  position:relative /* 设置相对定位，为背景动画做准备 */
+body {
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text);
+  position: relative;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* 背景动画效果 - 创建多层渐变背景 */
-.bg-animate{
-  position:absolute; /* 绝对定位，覆盖整个页面 */
-  inset:0; /* 覆盖整个父元素 */
-  min-height:100%; /* 最小高度为100% */
-  z-index:-1; /* 设置在内容下方 */
-  pointer-events:none; /* 不响应鼠标事件 */
-  background-color:var(--bg); /* 基础背景色 */
-  /* 多层渐变效果，创建动态背景 */
-  background:linear-gradient(to bottom,rgba(2,6,23,.18),rgba(2,6,23,.28)),radial-gradient(120vmax 60vmax at 20% 20%,rgba(56,189,248,.22),transparent),radial-gradient(90vmax 50vmax at 80% 30%,rgba(99,102,241,.22),transparent),radial-gradient(100vmax 80vmax at 50% 100%,rgba(56,189,248,.16),transparent),radial-gradient(80vmax 80vmax at 50% 80%,rgba(34,197,94,.16),transparent)
+/* Cyber Grid Background Animation */
+.bg-animate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: 
+    linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(var(--grid-line) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
 }
 
-/* 浅色模式下的背景动画效果 */
-body[data-theme="light"] .bg-animate{
-  background-color:var(--bg); /* 使用浅色模式背景色 */
-  /* 浅色模式下的多层渐变效果 */
-  background:linear-gradient(to bottom,rgba(255,255,255,.6),rgba(255,255,255,.7)),radial-gradient(120vmax 60vmax at 20% 20%,rgba(56,189,248,.14),transparent),radial-gradient(90vmax 50vmax at 80% 30%,rgba(99,102,241,.14),transparent),radial-gradient(100vmax 80vmax at 50% 100%,rgba(56,189,248,.1),transparent),radial-gradient(80vmax 80vmax at 50% 80%,rgba(34,197,94,.1),transparent)
+@keyframes gridMove {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 0 0, 0 40px, 0 40px; }
+}
+
+/* Scanline Effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 2px, 3px 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.4;
 }
 
 /* ==================== 头部样式 ==================== */
-/* 网站头部 - 固定在顶部 */
-.site-header{
-  position:sticky; /* 粘性定位 */
-  top:0; /* 顶部对齐 */
-  backdrop-filter:saturate(1.5) blur(10px); /* 背景模糊效果 */
-  background:var(--header-bg); /* 使用变量设置背景色 */
-  border-bottom:1px solid var(--border); /* 底部边框 */
-  display:flex; /* 弹性布局 */
-  align-items:center; /* 垂直居中 */
-  justify-content:space-between; /* 两端对齐 */
-  padding:14px 22px; /* 内边距 */
-  z-index:10; /* 设置层级，确保在其他内容之上 */
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 0 10px var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 100;
 }
 
-/* 网站品牌名称 - 渐变色文字 */
-.site-brand{
-  font-weight:800; /* 字体加粗 */
-  letter-spacing:.5px; /* 字母间距 */
-  background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6); /* 渐变背景 */
-  -webkit-background-clip:text; /* 文字裁剪背景 */
-  background-clip:text; /* 标准文字裁剪背景 */
-  color:transparent /* 文字颜色透明，显示背景渐变 */
+.site-brand {
+  font-family: var(--font-header);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan);
+  text-transform: uppercase;
 }
 
-/* 网站导航链接 */
-.site-nav .nav-link{
-  color:var(--nav-link-color); /* 使用变量设置文字颜色 */
-  text-decoration:none; /* 移除下划线 */
-  margin-left:16px; /* 左边距 */
-  padding:8px 12px; /* 内边距 */
-  border-radius:10px; /* 圆角 */
-  transition:all .2s; /* 过渡动画 */
-  border:none; /* 无边框 */
-  background:transparent /* 透明背景 */
+.site-nav .nav-link {
+  font-family: var(--font-code);
+  color: var(--nav-link-color);
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  font-size: 0.9rem;
 }
 
-/* 导航链接悬停效果 */
-.site-nav .nav-link:hover{
-  color:var(--text); /* 悬停时文字颜色 */
-  background:var(--nav-link-hover-bg) /* 悬停时背景色 */
+.site-nav .nav-link:hover {
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan), inset 0 0 8px rgba(0, 243, 255, 0.2);
+  background: rgba(0, 243, 255, 0.05);
+  text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 /* ==================== 内容区域样式 ==================== */
-/* 主应用容器 */
-#app{
-  padding:30px 16px /* 内边距 */
+#app {
+  padding: 40px 20px;
 }
 
-/* 文章内容区域 */
-.markdown-section{
-  max-width:var(--content-max-width); /* 使用变量设置最大宽度 */
-  margin:0 auto; /* 水平居中 */
-  border-radius:18px; /* 圆角 */
-  padding:28px; /* 内边距 */
-  background:var(--card-bg); /* 使用变量设置背景色 */
-  box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04); /* 阴影效果 */
-  border:1px solid var(--border); /* 边框 */
-  color:var(--text) /* 使用变量设置文字颜色 */
+.markdown-section {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border-radius: 4px; /* Techy sharp corners */
+  position: relative;
 }
 
-/* 标题样式 - h1, h2, h3 */
-.markdown-section h1,.markdown-section h2,.markdown-section h3{
-  scroll-margin-top:90px; /* 滚动边距，确保标题不被固定头部遮挡 */
-  color:var(--heading-color)!important; /* 使用变量设置标题颜色 */
-  font-weight:700 /* 字体加粗 */
+/* Decorative Corner Accents */
+.markdown-section::before, .markdown-section::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--neon-pink);
+  transition: all 0.3s;
 }
 
-/* h1标题样式 */
-.markdown-section h1{
-  font-size:2em; /* 字体大小 */
-  margin-top:0 /* 顶部边距为0 */
+.markdown-section::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
 }
 
-/* h2标题样式 */
-.markdown-section h2{
-  font-size:1.6em; /* 字体大小 */
-  margin-top:1.5em; /* 顶部边距 */
-  border-bottom:1px solid var(--border); /* 底部边框 */
-  padding-bottom:0.3em /* 底部内边距 */
+.markdown-section::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
 }
 
-/* h3标题样式 */
-.markdown-section h3{
-  font-size:1.3em; /* 字体大小 */
-  margin-top:1.2em /* 顶部边距 */
+.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4 {
+  font-family: var(--font-header);
+  color: var(--heading-color) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* h4标题样式 */
-.markdown-section h4{
-  font-size:1.1em; /* 字体大小 */
-  color:var(--text); /* 使用变量设置文字颜色 */
-  font-weight:600 /* 字体加粗 */
+.markdown-section h1 {
+  font-size: 2.5em;
+  border-bottom: 2px solid var(--neon-purple);
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  text-shadow: 0 0 10px rgba(189, 0, 255, 0.5);
 }
 
-/* 段落样式 */
-.markdown-section p{
-  line-height:1.7; /* 行高 */
-  color:var(--text) /* 使用变量设置文字颜色 */
+.markdown-section h2 {
+  font-size: 1.8em;
+  margin-top: 1.5em;
+  border-left: 4px solid var(--neon-cyan);
+  padding-left: 15px;
 }
 
-/* 列表项样式 */
-.markdown-section li{
-  line-height:1.6; /* 行高 */
-  color:var(--text) /* 使用变量设置文字颜色 */
+.markdown-section p, .markdown-section li {
+  line-height: 1.8;
+  color: var(--text);
+  font-size: 1.05rem;
 }
 
-/* 强调文本样式 */
-.markdown-section strong{
-  color:var(--heading-color); /* 使用变量设置文字颜色 */
-  font-weight:600 /* 字体加粗 */
+.markdown-section strong {
+  color: var(--neon-green);
+  font-weight: 700;
 }
 
-/* 代码块样式 */
-.markdown-section pre{
-  border-radius:14px; /* 圆角 */
-  background:var(--code-bg); /* 使用变量设置背景色 */
-  border:1px solid var(--border) /* 边框 */
+.markdown-section pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
 }
 
-/* 行内代码样式 */
-.markdown-section code{
-  font-size:.95em; /* 字体大小 */
-  color:var(--link) /* 使用变量设置文字颜色 */
+.markdown-section code {
+  font-family: var(--font-code);
+  color: var(--neon-pink);
 }
 
-/* 代码块中的代码样式 */
-.markdown-section pre code{
-  color:var(--text) /* 使用变量设置文字颜色 */
+.markdown-section pre code {
+  color: var(--text);
 }
 
-/* 链接样式 */
-.markdown-section a{
-  color:var(--link); /* 使用变量设置文字颜色 */
-  text-decoration:none; /* 移除下划线 */
-  transition:color .2s /* 颜色过渡动画 */
+.markdown-section a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--link);
+  transition: all 0.2s;
 }
 
-/* 链接悬停效果 */
-.markdown-section a:hover{
-  color:var(--link-hover); /* 悬停时文字颜色 */
-  text-decoration:underline /* 悬停时添加下划线 */
+.markdown-section a:hover {
+  color: var(--link-hover);
+  border-bottom-style: solid;
+  text-shadow: 0 0 8px var(--link-hover);
 }
 
-/* 引用块样式 */
-.markdown-section blockquote{
-  border-left:4px solid var(--link); /* 左边框 */
-  padding:0.8em 1em; /* 内边距 */
-  margin:1em 0; /* 上下边距 */
-  color:var(--text-secondary)!important; /* 使用变量设置文字颜色 */
-  font-style:italic; /* 斜体 */
-  background:rgba(125,211,252,0.05); /* 背景色 */
-  border-radius:8px /* 圆角 */
+.markdown-section blockquote {
+  border-left: 4px solid var(--neon-purple);
+  background: rgba(189, 0, 255, 0.1);
+  color: var(--text-secondary) !important;
+  margin: 1.5em 0;
+  padding: 1em;
+  border-radius: 0 4px 4px 0;
 }
 
-/* 引用块中的段落样式 */
-.markdown-section blockquote p{
-  color:var(--text-secondary)!important /* 使用变量设置文字颜色 */
+/* Table Styles */
+.markdown-section table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 1.5em 0;
+  border: 1px solid var(--border);
 }
 
-/* 表格样式 */
-.markdown-section table{
-  border-collapse:collapse; /* 边框合并 */
-  width:100%; /* 宽度 */
-  margin:1em 0 /* 上下边距 */
+.markdown-section table th, .markdown-section table td {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 12px;
 }
 
-/* 表格单元格样式 */
-.markdown-section table th,.markdown-section table td{
-  border:1px solid var(--border); /* 边框 */
-  padding:0.6em 1em; /* 内边距 */
-  color:var(--text) /* 使用变量设置文字颜色 */
-}
-
-/* 表格表头样式 */
-.markdown-section table th{
-  background:var(--code-bg); /* 使用变量设置背景色 */
-  font-weight:600; /* 字体加粗 */
-  color:var(--heading-color) /* 使用变量设置文字颜色 */
+.markdown-section table th {
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--neon-cyan);
+  font-family: var(--font-header);
+  text-transform: uppercase;
+  font-size: 0.9em;
 }
 
 /* ==================== 侧边栏样式 ==================== */
-/* 侧边栏和侧边栏导航 */
-.sidebar,.sidebar-nav{
-  backdrop-filter:saturate(1.4) blur(10px)!important; /* 背景模糊效果 */
-  background:var(--sidebar-bg)!important; /* 使用变量设置背景色 */
-  border-right:1px solid var(--border)!important; /* 右侧边框 */
-  width:var(--sidebar-width)!important; /* 使用变量设置宽度 */
-  overflow-x:auto!important; /* 水平方向溢出时显示滚动条 */
-  overflow-y:auto!important /* 垂直方向溢出时显示滚动条 */
+.sidebar {
+  background: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--border) !important;
+  backdrop-filter: blur(10px);
+  width: var(--sidebar-width) !important;
 }
 
-/* 侧边栏滚动条样式 */
-.sidebar::-webkit-scrollbar{
-  width:8px; /* 滚动条宽度 */
-  height:8px /* 滚动条高度 */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
 }
 
-/* 侧边栏滚动条轨道样式 */
-.sidebar::-webkit-scrollbar-track{
-  background:rgba(0,0,0,0.1); /* 轨道背景色 */
-  border-radius:4px /* 圆角 */
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
 }
 
-/* 侧边栏滚动条滑块样式 */
-.sidebar::-webkit-scrollbar-thumb{
-  background:var(--border); /* 滑块背景色 */
-  border-radius:4px; /* 圆角 */
-  transition:background 0.2s /* 背景色过渡动画 */
+.sidebar ul li a {
+  font-family: var(--font-code);
+  color: var(--text) !important;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
 }
 
-/* 侧边栏滚动条滑块悬停效果 */
-.sidebar::-webkit-scrollbar-thumb:hover{
-  background:var(--link) /* 悬停时滑块背景色 */
+.sidebar ul li a:hover {
+  color: var(--neon-cyan) !important;
+  border-left-color: var(--neon-cyan);
+  background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), transparent);
 }
 
-/* 侧边栏列表样式 */
-.sidebar ul{
-  white-space:nowrap /* 禁止换行 */
+.sidebar ul li.active > a {
+  color: var(--neon-pink) !important;
+  border-left-color: var(--neon-pink);
+  background: linear-gradient(90deg, rgba(255, 0, 255, 0.1), transparent);
+  text-shadow: 0 0 5px var(--neon-pink);
 }
 
-/* 侧边栏列表项样式 */
-.sidebar ul li{
-  white-space:normal /* 允许换行 */
+.sidebar > h1 {
+  font-family: var(--font-header);
+  color: var(--neon-cyan) !important;
 }
 
-/* 侧边栏链接样式 */
-.sidebar ul li a{
-  color:var(--text)!important; /* 使用变量设置文字颜色 */
-  transition:all .2s; /* 过渡动画 */
-  display:block; /* 块级显示 */
-  overflow:hidden; /* 溢出隐藏 */
-  text-overflow:ellipsis /* 文本溢出显示省略号 */
-}
-
-/* 侧边栏链接悬停效果 */
-.sidebar ul li a:hover{
-  color:var(--link)!important /* 悬停时文字颜色 */
-}
-
-/* 侧边栏活动链接样式 */
-.sidebar ul li.active>a{
-  color:var(--link)!important; /* 活动链接文字颜色 */
-  border-right:2px solid var(--link)!important /* 右侧边框 */
-}
-
-/* 侧边栏标题样式 */
-.sidebar>h1{
-  color:var(--text)!important; /* 使用变量设置文字颜色 */
-  white-space:nowrap; /* 禁止换行 */
-  overflow:hidden; /* 溢出隐藏 */
-  text-overflow:ellipsis /* 文本溢出显示省略号 */
-}
-
-/* 侧边栏标题链接样式 */
-.sidebar>h1 a{
-  color:var(--text)!important /* 使用变量设置文字颜色 */
+.sidebar > h1 a {
+  color: var(--neon-cyan) !important;
 }
 
 /* ==================== 搜索框样式 ==================== */
-/* 直接修改Docsify搜索框组件样式，移除外层容器样式 */
-.sidebar .search,
-.search{
-  margin:0!important; /* 移除外边距 */
-  padding:0!important; /* 移除内边距 */
-  background:transparent!important; /* 透明背景 */
-  border:none!important; /* 移除边框 */
-  box-shadow:none!important /* 移除可能的白色阴影 */
+.sidebar .search, .search {
+  margin-bottom: 20px !important;
 }
 
-/* 确保搜索框容器及其所有子元素都使用深色背景 */
-.sidebar .search *,
-.search *{
-  background:transparent!important; /* 强制透明背景 */
-  box-shadow:none!important /* 移除所有阴影 */
+.sidebar .search input, .search input {
+  background: var(--search-bg) !important;
+  color: var(--neon-green) !important;
+  border: 1px solid var(--neon-green) !important;
+  font-family: var(--font-code) !important;
+  border-radius: 0 !important; /* Terminal style */
+  padding: 10px !important;
+  box-shadow: 0 0 5px rgba(0, 255, 159, 0.2) !important;
 }
 
-/* 特别处理搜索框包装器和表单元素 */
-.sidebar .search .input-wrap,
-.sidebar .search form,
-.search .input-wrap,
-.search form{
-  background:transparent!important; /* 透明背景 */
-  border:none!important; /* 移除边框 */
-  box-shadow:none!important /* 移除阴影 */
+.sidebar .search input:focus {
+  box-shadow: 0 0 10px var(--neon-green) !important;
 }
 
-/* 搜索输入框样式 */
-.sidebar .search input,
-.sidebar .search .input,
-.sidebar .search input[type="text"],
-.sidebar .search .input[type="text"],
-.search input,
-.search .input,
-.search input[type="text"],
-.search .input[type="text"]{
-  background:var(--search-bg)!important; /* 使用变量设置背景色 */
-  color:var(--text)!important; /* 使用变量设置文字颜色 */
-  width:100%!important; /* 宽度100% */
-  outline:none!important; /* 移除轮廓 */
-  border:1px solid var(--border)!important; /* 边框 */
-  font-size:14px!important; /* 字体大小 */
-  padding:8px 12px!important; /* 内边距 */
-  margin:10px!important; /* 外边距 */
-  border-radius:8px!important; /* 圆角 */
-  backdrop-filter:saturate(1.3) blur(10px)!important; /* 背景模糊效果 */
-  box-shadow:none!important /* 移除可能的白色阴影 */
+.sidebar .search input::placeholder {
+  color: var(--search-placeholder-color) !important;
+  text-transform: uppercase;
 }
 
-/* 搜索框占位符样式 */
-.sidebar .search input::placeholder,
-.sidebar .search .input::placeholder,
-.search input::placeholder,
-.search .input::placeholder{
-  color:var(--search-placeholder-color)!important; /* 使用变量设置占位符颜色 */
-  opacity:0.7!important /* 透明度 */
+.results-panel {
+  background: var(--search-bg) !important;
+  border: 1px solid var(--neon-green) !important;
 }
 
-/* 搜索结果面板样式 */
-.results-panel{
-  background:var(--search-bg)!important; /* 使用变量设置背景色 */
-  border:1px solid var(--border)!important; /* 边框 */
-  border-radius:8px!important; /* 圆角 */
-  margin-top:5px!important /* 顶部边距 */
+.results-panel .matching-post {
+  border-bottom: 1px dashed rgba(0, 255, 159, 0.3) !important;
 }
 
-/* 搜索结果项样式 */
-.results-panel .matching-post{
-  border-bottom:1px solid var(--border)!important /* 底部边框 */
+.results-panel .matching-post a {
+  color: var(--neon-green) !important;
+  font-family: var(--font-code);
 }
 
-/* 最后一个搜索结果项样式 */
-.results-panel .matching-post:last-child{
-  border-bottom:none!important /* 移除底部边框 */
-}
-
-/* 搜索结果链接样式 */
-.results-panel .matching-post a{
-  color:var(--text)!important /* 使用变量设置文字颜色 */
-}
-
-/* 搜索结果描述样式 */ +++
-.results-panel .matching-post p{
-  color:var(--text-secondary)!important /* 使用变量设置文字颜色 */
-}
-
-/* ==================== 其他样式 ==================== */
-/* 避免Docsify侧边栏切换按钮与网站头部品牌重叠 */
-.sidebar-toggle{
-  top:72px /* 顶部位置调整 */
-}
-
-/* ==================== 数学公式样式 ==================== */
-/* KaTeX数学公式基础样式 */
-.katex{
-  font-size:1.05em; /* 字体大小 */
-  color:var(--text)!important /* 使用变量设置文字颜色 */
-}
-
-/* KaTeX显示模式样式 */
-.katex-display{
-  overflow-x:auto; /* 水平方向溢出时显示滚动条 */
-  overflow-y:hidden /* 垂直方向溢出隐藏 */
-}
-
-/* KaTeX块级公式样式 */
-.katex-block{
-  background:var(--code-bg); /* 使用变量设置背景色 */
-  border-radius:8px; /* 圆角 */
-  padding:1.2em; /* 内边距 */
-  margin:1em 0; /* 上下边距 */
-  border:1px solid var(--border); /* 边框 */
-  overflow-x:auto /* 水平方向溢出时显示滚动条 */
-}
-
-/* KaTeX块级公式中的公式样式 */
-.katex-block .katex{
-  font-size:1.1em /* 字体大小 */
-}
-
-/* KaTeX HTML内容样式 */
-.katex .katex-html{
-  color:var(--text)!important /* 使用变量设置文字颜色 */
-}
-
-/* KaTeX基础内容样式 */
-.katex .base{
-  color:var(--text)!important /* 使用变量设置文字颜色 */
-}
-
-/* 行内数学公式样式 */
-.markdown-section p .katex,.markdown-section li .katex{
-  background:rgba(125,211,252,0.08); /* 背景色 */
-  padding:0.15em 0.4em; /* 内边距 */
-  border-radius:4px; /* 圆角 */
-  display:inline-block /* 行内块级显示 */
-}
-
-/* 数学公式错误提示样式 */
-.katex-error{
-  color:#ef4444; /* 错误文字颜色 */
-  background:rgba(239,68,68,0.1); /* 背景色 */
-  padding:0.2em 0.5em; /* 内边距 */
-  border-radius:4px; /* 圆角 */
-  font-family:monospace /* 等宽字体 */
+.results-panel .matching-post p {
+  color: var(--text-secondary) !important;
 }
 
 /* ==================== 响应式设计 ==================== */
-/* 中等屏幕尺寸下的样式调整 */
-@media (max-width: 960px){
-  .site-header{
-    padding:10px 14px /* 头部内边距调整 */
+@media (max-width: 960px) {
+  .site-header {
+    padding: 10px 15px;
   }
-  .site-nav .nav-link{
-    margin-left:8px; /* 导航链接左边距调整 */
-    padding:6px 10px /* 导航链接内边距调整 */
+  
+  .markdown-section {
+    padding: 20px;
   }
-  #app{
-    padding:18px 10px /* 主应用容器内边距调整 */
-  }
-  .markdown-section{
-    padding:20px; /* 内容区域内边距调整 */
-    border-radius:16px /* 圆角调整 */
+  
+  .bg-animate {
+    background-size: 100% 100%, 20px 20px, 20px 20px; /* Smaller grid on mobile */
   }
 }
 
-/* 小屏幕尺寸下的侧边栏切换按钮位置调整 */
-@media (max-width: 960px){
-  .sidebar-toggle{
-    top:58px /* 侧边栏切换按钮位置调整 */
-  }
+/* KaTeX Adjustments */
+.katex {
+  color: var(--text) !important;
+}
+.katex-block {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--border);
+  box-shadow: none;
 }
