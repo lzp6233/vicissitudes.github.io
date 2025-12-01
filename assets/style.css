@@ -65,9 +65,12 @@ body[data-theme="light"] {
 html,
 body {
   min-height: 100%;
+  touch-action: manipulation;
+}
+
+body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
 }
 
 body {
