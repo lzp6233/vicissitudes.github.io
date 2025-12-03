@@ -79,7 +79,7 @@
 + 在UDP上实现可靠数据传输
   + 在应用层实现可靠性，错误恢复机制
 
-<img src="explore.assets/image-20251203183557814.png" alt="image-20251203183557814" style="zoom:50%;" />
+<img src="posts/2025/network/explore.assets/image-20251203183557814.png" alt="image-20251203183557814" style="zoom:50%;" />
 
 ### 可靠数据传输原理（RDT）
 
@@ -87,7 +87,7 @@
 
   + 不错，不乱，不丢
 
-  <img src="explore.assets/image-20251203184650173.png" alt="image-20251203184650173" style="zoom:50%;" />
+  <img src="posts/2025/network/explore.assets/image-20251203184650173.png" alt="image-20251203184650173" style="zoom:50%;" />
   + **key：应用接口的箭头为单向，而数据传输为双向箭头**
 
 + 利用FSM刻画传输协议
@@ -105,5 +105,5 @@
 
 + 由于是可靠信道，不需要控制交换
 
-  <img src="explore.assets/image-20251203185504218.png" alt="image-20251203185504218" style="zoom:80%;" />
+  <img src="posts/2025/network/explore.assets/image-20251203185504218.png" alt="image-20251203185504218" style="zoom:80%;" />
 
